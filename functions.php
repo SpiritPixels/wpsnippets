@@ -1,3 +1,26 @@
+/******************************************************************************/
+/* Useful Wordpress functions.php Snippets **************************/
+/******************************************************************************/
+
+
+// Remove Admin Bar - Only display to administrators
+add_action('after_setup_theme', 'remove_admin_bar');
+function remove_admin_bar() {
+	if (!current_user_can('administrator') && !is_admin()) {
+		show_admin_bar(false);
+	}
+}
+
+
+// WooCommerce Number of Related Products
+function woocommerce_output_related_products() {
+	$atts = array(
+		'posts_per_page' => '6',
+		'orderby'        => 'rand'
+	);
+	woocommerce_related_products($atts);
+}
+
 
 // Login errors fix
 function no_wordpress_errors(){
