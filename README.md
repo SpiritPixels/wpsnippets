@@ -1,0 +1,2 @@
+# wpsnippets
+Useful Wordpress snippets
